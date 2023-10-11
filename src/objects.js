@@ -17,7 +17,8 @@ function getNames(people) {
   function addNames(people){
     return `${people.firstName} ${people.lastName}`;
   }
-  people.map(addNames);
+  let fullNames = people.map(addNames);
+  return fullNames;
 }
 
 // Given an object representing a person, return their full name (first name and last name).
@@ -29,7 +30,10 @@ function getNames(people) {
 // Ex.:
 //   getName({ firstName: 'Gale', lastName: 'Dekarios', location: 'Waterdeep' });
 //   => 'Gale Dekarios'
-function getNameUsingDestructuring(person) {}
+function getNameUsingDestructuring(person) {
+  let {firstName, lastName} = person;
+  return `${firstName} ${lastName}`;
+}
 
 // Given an array of objects representing people, return a new array of the
 // people matching the given location.
@@ -48,7 +52,15 @@ function getNameUsingDestructuring(person) {}
 //     { firstName: 'Wyll', lastName: 'Ravengard', location: "Baldur's Gate" },
 //     { firstName: 'Astarion', lastName: 'Ancunin', location: "Baldur's Gate" }
 //   ];
-function getPeopleByLocation(people, location) {}
+function getPeopleByLocation(people, location) {
+  const newPeopleArr = [];
+  for(let each of people){
+    if(each.location == location){
+    newPeopleArr.push(each);
+    }
+  }
+  return newPeopleArr;
+}
 
 // Translate a phrase to pirate talk.
 //
@@ -77,7 +89,16 @@ const EN_PIRATE_LOOKUP = {
   hello: 'ahoy',
 };
 
-function translateToPirateTalk(phrase) {}
+function translateToPirateTalk(phrase) {
+   for(let each in EN_PIRATE_LOOKUP){
+    let pirateWord = each;
+    for(let each in phrase){
+      if(each == pirateWord){
+        each = pirateWord.each;
+      }
+    }
+   }
+}
 
 // Return the number of occurrences of each word in a string.
 // This function doesn't handle punctuation and is case-sensitive, so you can
