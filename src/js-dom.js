@@ -8,7 +8,15 @@
 // update and say "Log out". If a user clicks on the button again, its text
 // should switch from "Log Out" to "Log In".
 
-/// TODO: replace this with your code
+const logButton = document.querySelector("#auth");
+
+logButton.addEventListener("click", () => {
+    if(logButton.innerText != "Log out"){
+        logButton.innerText = "Log out";
+    } else{
+        logButton.innerText = "Log in";
+    }
+})
 
 // Send an alert
 //
@@ -17,7 +25,17 @@
 // A user should be able to enter what they want the alert to say in the
 // text box. Then, they can submit the form to trigger the alert.
 
-/// TODO: replace this with your code
+const alertMessage = document.querySelector("#alert-message");
+
+const submitButton = document.querySelectorAll("button");
+
+for(let each of submitButton){
+    if(each.innerText == "Send alert"){
+        each.addEventListener("click", () => {
+            alert(alertMessage.innerText);
+        })
+    }
+}
 
 // Add an item
 //
@@ -34,7 +52,14 @@
 //     <li>Item</li>  <!-- This was added after double-clicking -->
 //   </ol>
 
-/// TODO: replace this with your code
+const addListButton = document.querySelector("#d");
+const itemList = document.querySelector("#list");
+
+addListButton.addEventListener("dblclick", () => {
+//const li = document.createElement("li");
+// li.innerText = "Item";
+// document.ol.appendChild(li);
+})
 
 // Change colors
 //
