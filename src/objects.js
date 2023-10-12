@@ -89,16 +89,50 @@ const EN_PIRATE_LOOKUP = {
   hello: 'ahoy',
 };
 
-function translateToPirateTalk(phrase) {
-   for(let each in EN_PIRATE_LOOKUP){
-    let pirateWord = each;
-    for(let each in phrase){
-      if(each == pirateWord){
-        each = pirateWord.each;
+//a get words
+//b compare words
+//c return new string
+
+function translateToPirateTalk(phrase){
+  let sentance = "";
+  let word = "";
+  for(let letter of phrase){
+    //console.log(letter);
+    if(letter != " "){
+      word = `${word}${letter}`;
+      //console.log(word);
+    } else{
+      for(let each in EN_PIRATE_LOOKUP){
+        if(word == each){
+          word = EN_PIRATE_LOOKUP[each];
+        }
       }
+      //console.log(word)
+      sentance = `${sentance}${word} `;
+      word = "";
     }
-   }
+  }
+  for(let each in EN_PIRATE_LOOKUP){
+    if(word == each){
+      word = EN_PIRATE_LOOKUP[each];
+    }
+  }
+  sentance = `${sentance}${word}`;
+return sentance;
 }
+
+// function translateToPirateTalk(phrase) {
+//    for(let each in EN_PIRATE_LOOKUP){
+//     let pirateWord = each;
+//     console.log(each);
+//     for(let words in phrase){
+//       console.log(words);
+//       if(words == pirateWord){
+//         words = pirateWord.each;
+//       }
+//     }
+//    }
+// }
 
 // Return the number of occurrences of each word in a string.
 // This function doesn't handle punctuation and is case-sensitive, so you can
@@ -107,7 +141,33 @@ function translateToPirateTalk(phrase) {
 // Ex.:
 //   wordCount('hello world')
 //   => { hello: 1, world: 1 }
-function wordCount(str) {}
+function wordCount(str) {
+  //a break string into words
+  //b compare words
+  //c count words
+  
+  let word = "";
+  let counter = 0;
+
+
+
+//   for(const char in str){
+//     if(char == " "){
+//       if(word == str){
+//         counter++;
+//       }
+//       word = "";
+//     } else if(char == "." || "!" || "?"){
+//       if(word == str){
+//         counter++;
+//       }
+//       word = "";
+//     } else{
+//       word = `${word}${char}`;
+//     }
+//   }
+//   return counter;
+}
 
 // Given an object representing a bug, return true if the given bug is
 // available in the given month.
@@ -129,7 +189,14 @@ function wordCount(str) {}
 //     }
 //   }, 1);
 //   => true
-function isBugAvailable(bug, month) {}
+function isBugAvailable(bug, month) {
+  for(let each of bug.availability.months){
+    if(each == month){
+      return true;
+    }
+  }
+  return false;
+}
 
 // Given an array of objects representing bugs, return an object that'll be
 // used to build a calendar. The keys of the object should be the months of the
@@ -172,7 +239,31 @@ function isBugAvailable(bug, month) {}
 //     12: [],
 //   }
 
-function buildBugHuntCalendar(bugs) {}
+function buildBugHuntCalendar(bugs) {
+  let calendarObj = {
+    1: [],
+    2: [],
+    3: [],
+    4: [],
+    5: [],
+    6: [],
+    7: [],
+    8: [],
+    9: [],
+    10: [],
+    11: [],
+    12: [],
+  }
+
+  for(let each of bugs.availability.months){
+    for(let month of calendarObj){
+      if(each == month){
+        calendarObj.each.push(bugs.name);
+      }
+    }
+  }
+  return calendarObj;
+}
 
 export {
   buildBugHuntCalendar,
