@@ -4,9 +4,7 @@ body {
 #planets {
     border: 1px solid white;
 }
-table th {
-    border: 1px white;
-}
-td {
-    border: 1px white;
+.box {
+    border: 1px solid white;
+    padding: 5px;
 }
