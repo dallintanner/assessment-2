@@ -254,11 +254,14 @@ function buildBugHuntCalendar(bugs) {
     11: [],
     12: [],
   }
+  const availableMonth = bugs.availability.months;
 
-  for(let each of bugs.availability.months){
-    for(let month of calendarObj){
-      if(each == month){
-        calendarObj.each.push(bugs.name);
+  for(let bug of bugs){
+    for(let each of availableMonth){
+      for(let month in calendarObj){
+        if(each == month){
+          calendarObj.month.push(bugs.name);
+        }
       }
     }
   }

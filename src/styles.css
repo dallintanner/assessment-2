@@ -1,0 +1,12 @@
+body {
+    background-color: black; color: white; font-family: sans-serif;
+}
+#planets {
+    border: 1px solid white;
+}
+table th {
+    border: 1px white;
+}
+td {
+    border: 1px white;
+}
